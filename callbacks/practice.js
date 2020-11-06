@@ -118,12 +118,16 @@ contains(names, 'Colt', function(result){
 
 //Code Here
 function uniq(arr,cb){
-  let result = []
-  for (let i =0;i<arr.length;i++){
-    if(!result.includes(arr[i])){
-      result.push(arr[i])
+  let result = [arr[0]]
+  for (let i =1;i<arr.length;i++){
+    result.push(arr[i])
+    for (let j=0;j<result.length-1;j++){
+      if(arr[i]===result[j]){
+        result.pop()
+      }
+    }
+      
   }
-}
   cb(result)
 }
 // Do not edit the code below.
@@ -172,6 +176,7 @@ function getUserById (arr,id,cb){
     }
   }
 }
+
 
 // Do not edit the code below.
 var users = [
